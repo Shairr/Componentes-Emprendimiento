@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================
+   VARIABLES GLOBALES DE MARCA (SIN ALTERAR)
+   ========================================== */
+:root {
+  --color-marca: #6f4e37;
+  --color-acento: #c68642;
+  --color-fondo: #faf7f4;
+  --color-superficie: #ffffff;
+  --color-texto: #2c1a0e;
+  --color-texto-suave: #6a6460;
+
+  /* Tokens tipográficos y visuales de refinamiento */
+  --fuente-display: 'Cormorant Garamond', Georgia, serif;
+  --fuente-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --sombra-elegante: 0 10px 30px -8px rgba(44, 26, 14, 0.08);
+  --sombra-suave: 0 4px 16px -2px rgba(44, 26, 14, 0.05);
+  --transicion-suave: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================
+   RESET Y ESTILOS BASE
+   ========================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--fuente-base);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+/* Selección de texto armonizada */
+::selection {
+  background-color: var(--color-acento);
+  color: #ffffff;
+}
+
+/* Barra de scroll refinada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-fondo);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8c8ba;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-acento);
+}
+
+/* ==========================================
+   BARRA DE NAVEGACIÓN (NAVBAR)
+   ========================================== */
+.navbar {
+  width: 100%;
+  background-color: var(--color-marca);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(198, 134, 66, 0.3);
+  box-shadow: 0 4px 24px -4px rgba(44, 26, 14, 0.16);
+  backdrop-filter: blur(8px);
+}
+
+.navbar-contenedor {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 10px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.navbar-marca {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  transition: opacity 0.25s ease;
+}
+
+.navbar-marca:hover {
+  opacity: 0.92;
+}
+
+.navbar-textos {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-titulo {
+  font-family: var(--fuente-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.navbar-subtitulo {
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 1px;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.nav-enlace {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 0;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-enlace:hover,
+.nav-enlace.activo {
+  color: #ffffff;
+}
+
+.nav-enlace::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--color-acento);
+  border-radius: 1px;
+  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-enlace:hover::after,
+.nav-enlace.activo::after {
+  width: 100%;
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL (MAIN)
+   ========================================== */
+.contenedor-principal {
+  flex: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 48px 36px;
+}
+
+/* Herencia de variables CSS hacia los Web Components */
+tarjeta-producto {
+  --color-marca: var(--color-marca);
+  --color-acento: var(--color-acento);
+  --color-fondo: var(--color-fondo);
+  --color-superficie: var(--color-superficie);
+  --color-texto: var(--color-texto);
+  --color-texto-suave: var(--color-texto-suave);
+}
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.footer {
+  width: 100%;
+  background-color: var(--color-marca);
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: auto;
+  border-top: 1px solid rgba(198, 134, 66, 0.35);
+}
+
+.footer-contenedor {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px 32px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-marca {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nombre {
+  font-family: var(--fuente-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+.footer-eslogan {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.68);
+  margin-top: 1px;
+  letter-spacing: 0.03em;
+}
+
+.footer-copy {
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.02em;
+}
+
+.footer-redes {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.red-enlace {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-bottom: 2px;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.red-enlace:hover {
+  color: var(--color-acento);
+}
+
+.red-enlace::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: var(--color-acento);
+  transition: width 0.25s ease;
+}
+
+.red-enlace:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE (TABLETS Y MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+  .navbar-contenedor,
+  .footer-contenedor {
+    flex-direction: column;
+    text-align: center;
+    padding: 14px 18px;
+    gap: 12px;
+  }
+
+  .navbar-marca {
+    justify-content: center;
+  }
+
+  .navbar-menu {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .footer-marca {
+    align-items: center;
+  }
+
+  .footer-redes {
+    justify-content: center;
+  }
+
+  .contenedor-principal {
+    padding: 28px 18px;
+  }
+}
