@@ -85,3 +85,6 @@ Resultado que vimos:
 - Herramienta usada (o «ninguna»):
 - Para qué la consultamos:
 - Qué cambiamos o comprobamos nosotros:
+
+# Componentes-Emprendimiento
+Propuesta de un 1 emprendimiento de libre elección y construcción de su interfaz con componentes web personalizados, encapsulados y reutilizables.
