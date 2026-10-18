@@ -11,7 +11,6 @@
 
 <body>
 
-  <!-- BARRA DE NAVEGACIÓN (HEADER) -->
   <header class="navbar">
     <div class="navbar-contenedor">
       <a href="#" class="navbar-marca">
@@ -31,21 +30,14 @@
     </div>
   </header>
 
-  <!-- CONTENEDOR PRINCIPAL -->
   <main class="contenedor-principal">
 
-    <!-- ══════════════════════════════════════════════
-         PASO 4 · Tres tarjetas con productos reales
-         Cada una usa la etiqueta <tarjeta-producto>
-         con slots foto, nombre y descripción (slot default)
-    ═══════════════════════════════════════════════ -->
     <section id="productos" class="catalogo" aria-label="Catálogo de productos">
       <h2 class="seccion-titulo">Nuestros Productos</h2>
       <p class="seccion-sub">Cada taza cuenta una historia. Elige la tuya.</p>
 
       <div class="catalogo-grid">
 
-        <!-- Tarjeta 1: Espresso Artesanal · DESTACADO (reto extra) -->
         <tarjeta-producto id="tarjeta-espresso" precio="3.50" destacado>
           <img slot="foto" src="./img/espresso.jpg" alt="Taza de espresso artesanal con latte art en mesa de madera" />
           <h3 slot="nombre">Espresso Artesanal</h3>
@@ -53,7 +45,6 @@
             todas nuestras bebidas.</p>
         </tarjeta-producto>
 
-        <!-- Tarjeta 2: Cold Brew 24h -->
         <tarjeta-producto id="tarjeta-coldbrew" precio="4.75">
           <img slot="foto" src="./img/cold-brew.jpg" alt="Vaso alto de cold brew con hielos y condensación" />
           <h3 slot="nombre">Cold Brew 24 h</h3>
@@ -61,7 +52,6 @@
             que no necesita azúcar.</p>
         </tarjeta-producto>
 
-        <!-- Tarjeta 3: Granos de Especialidad -->
         <tarjeta-producto id="tarjeta-granos" precio="12.00">
           <img slot="foto" src="./img/granos.jpg" alt="Bolsa de papel kraft con granos de café de especialidad" />
           <h3 slot="nombre">Granos de Especialidad</h3>
@@ -74,7 +64,6 @@
 
   </main>
 
-  <!-- PIE DE PÁGINA (FOOTER) -->
   <footer class="footer">
     <div class="footer-contenedor">
       <div class="footer-marca">
@@ -94,7 +83,6 @@
     </div>
   </footer>
 
-  <!-- MÓDULOS DE COMPONENTES WEB -->
   <script type="module" src="./componentes/tarjeta-producto.js"></script>
 
 </body>

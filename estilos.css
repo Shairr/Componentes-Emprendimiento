@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
-/* ==========================================
-   VARIABLES GLOBALES DE MARCA (SIN ALTERAR)
-   ========================================== */
 :root {
   --color-marca: #6f4e37;
   --color-acento: #c68642;
@@ -11,7 +8,6 @@
   --color-texto: #2c1a0e;
   --color-texto-suave: #6a6460;
 
-  /* Tokens tipográficos y visuales de refinamiento */
   --fuente-display: 'Cormorant Garamond', Georgia, serif;
   --fuente-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --sombra-elegante: 0 10px 30px -8px rgba(44, 26, 14, 0.08);
@@ -19,9 +15,6 @@
   --transicion-suave: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ==========================================
-   RESET Y ESTILOS BASE
-   ========================================== */
 *,
 *::before,
 *::after {
@@ -47,13 +40,11 @@ body {
   line-height: 1.6;
 }
 
-/* Selección de texto armonizada */
 ::selection {
   background-color: var(--color-acento);
   color: #ffffff;
 }
 
-/* Barra de scroll refinada */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -71,9 +62,6 @@ body {
   background: var(--color-acento);
 }
 
-/* ==========================================
-   BARRA DE NAVEGACIÓN (NAVBAR)
-   ========================================== */
 .navbar {
   width: 100%;
   background-color: var(--color-marca);
@@ -173,9 +161,6 @@ body {
   width: 100%;
 }
 
-/* ==========================================
-   CONTENEDOR PRINCIPAL (MAIN)
-   ========================================== */
 .contenedor-principal {
   flex: 1;
   width: 100%;
@@ -184,7 +169,6 @@ body {
   padding: 48px 36px;
 }
 
-/* Herencia de variables CSS hacia los Web Components */
 tarjeta-producto {
   --color-marca: var(--color-marca);
   --color-acento: var(--color-acento);
@@ -194,16 +178,10 @@ tarjeta-producto {
   --color-texto-suave: var(--color-texto-suave);
 }
 
-/* ==========================================
-   SECCIÓN DE PRODUCTOS (CATÁLOGO)
-   ========================================== */
-
-/* Contenedor de sección */
 .catalogo {
   padding-top: 0.5rem;
 }
 
-/* Título de sección — usa la fuente display del proyecto */
 .seccion-titulo {
   font-family: var(--fuente-display);
   font-size: clamp(2rem, 5vw, 3rem);
@@ -219,7 +197,6 @@ tarjeta-producto {
   transform: translateX(-50%);
 }
 
-/* Línea decorativa dorada bajo el título */
 .seccion-titulo::after {
   content: "";
   display: block;
@@ -233,7 +210,6 @@ tarjeta-producto {
   transform: translateX(-50%);
 }
 
-/* Subtítulo de sección */
 .seccion-sub {
   text-align: center;
   color: var(--color-texto-suave);
@@ -243,16 +219,12 @@ tarjeta-producto {
   margin-bottom: 2.8rem;
 }
 
-/* Grid de tarjetas — auto-fit para 1, 2 o 3 columnas según pantalla */
 .catalogo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 2rem;
 }
 
-/* ==========================================
-   PIE DE PÁGINA (FOOTER)
-   ========================================== */
 .footer {
   width: 100%;
   background-color: var(--color-marca);
@@ -337,9 +309,6 @@ tarjeta-producto {
   width: 100%;
 }
 
-/* ==========================================
-   RESPONSIVE (TABLETS Y MÓVILES)
-   ========================================== */
 @media (max-width: 768px) {
 
   .navbar-contenedor,
