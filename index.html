@@ -7,6 +7,7 @@
   <title>Café Raíz — Tostado Artesanal</title>
   <meta name="description" content="Café Raíz: café tostado artesanalmente con granos de origen único.">
   <link rel="stylesheet" href="./estilos.css">
+  <link rel="icon" href="./img/favicon.ico">
 </head>
 
 <body>
@@ -34,8 +35,10 @@
   <!-- CONTENEDOR PRINCIPAL (Aquí integras tus 4 componentes) -->
   <main class="contenedor-principal">
 
-    <!-- Aquí va tu contenido y tus Web Components -->
+    <!-- El web component muestra una promoción configurable mediante
+         los atributos descuento/codigo y los slots de iamgen, título, texto y acción. -->
     <banner-promocion descuento="20" codigo="CAFERAIZ2026" class="noise">
+         <img slot="imagen" src="./img/coffee-bag.png" width="80%">
          <span slot="titulo">DESCUENTO EN TU PRIMER PEDIDO</span>
          <span>Granos molidos en tu puerta.</span>
          <span slot="accion">Explorar Granos</span>

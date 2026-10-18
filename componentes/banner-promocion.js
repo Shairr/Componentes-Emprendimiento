@@ -1,6 +1,8 @@
 // componentes/banner-promocion.js
 
-// Plantilla declarada fuera de la clase.
+// Plantilla reutilizable del web component <banner-promocion>.
+// Define el estilo encapsulado, los slots personalizables y los elementos
+// que mostrarán el descuento y el código de la promoción.
 const plantilla = document.createElement("template");
 plantilla.innerHTML = `
   <style>
@@ -36,7 +38,7 @@ plantilla.innerHTML = `
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 15px
+        padding: 10px
       }
 
       img {
@@ -116,6 +118,7 @@ plantilla.innerHTML = `
 class bannerPromocion extends HTMLElement {
   constructor() {
     super();
+    // Shadow DOM para encapsular la estructura y los estilos del banner.
     this.attachShadow({ mode: "open" });
   }
 
@@ -124,6 +127,8 @@ class bannerPromocion extends HTMLElement {
   }
 
   connectedCallback() {
+    // Cada instancia recibe una copia independiente de la plantilla y
+    // sincroniza sus atributos iniciales con el contenido visible.
     this.shadowRoot.replaceChildren(plantilla.content.cloneNode(true));
     this._actualizarContenido(this.descuento, "banner-prom__discount", "", "% ");
     this._actualizarContenido(this.codigo, "banner-prom__code", "", "");
@@ -132,6 +137,8 @@ class bannerPromocion extends HTMLElement {
   attributeChangedCallback(nombre, anterior, valor) {
     if (anterior === valor || !this.shadowRoot) return;
 
+    // Mantiene actualizados el descuento y el código cuando cambia
+    // cualquiera de los atributos observados del componente.
     switch (nombre) {
       case "codigo":
         this._actualizarContenido(valor, "banner-prom__code", "", "");
@@ -142,6 +149,8 @@ class bannerPromocion extends HTMLElement {
     }
   }
 
+  // Actualiza un elemento del Shadow DOM con el valor recibido y los textos
+  // opcionales que lo acompañan, como el símbolo de porcentaje del descuento.
   _actualizarContenido(valor, elementId, textoIzquierda, textoDerecha) {
     const display = this.shadowRoot?.getElementById(`${elementId}`);
     if (!display) return;
@@ -166,5 +175,5 @@ class bannerPromocion extends HTMLElement {
   }
 }
 
-// Registrar el componente
+// Registra <banner-promocion> para poder usarlo directamente en HTML.
 customElements.define("banner-promocion", bannerPromocion);

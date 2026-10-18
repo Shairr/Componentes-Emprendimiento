@@ -54,7 +54,7 @@ Programación Integrativa de Componentes Web · Unidad 1: Web Components
 
 | Integrante | Qué hizo en este laboratorio |
 |---|---|
-| | |
+| Raúl Hinojoza | Se implementó y documentó el web component `<banner-promocion>`, incluyendo su plantilla, Shadow DOM, atributos observados (`descuento` y `codigo`) y slots personalizables. |
 | | |
 | | |
 | | |
@@ -82,8 +82,8 @@ Resultado que vimos:
 
 ## Uso de inteligencia artificial
 
-- Herramienta usada (o «ninguna»):
-- Para qué la consultamos:
+- Herramienta usada (o «ninguna»): Inteligencia artificial.
+- Para qué la consultamos: Para consultar el código y apoyar la corrección de errores durante la implementación del web component `<banner-promocion>`.
 - Qué cambiamos o comprobamos nosotros:
 
 # Componentes-Emprendimiento
