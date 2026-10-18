@@ -31,6 +31,14 @@
   </header>
 
   <main class="contenedor-principal">
+    <section id="origen" class="origen" aria-label="Origen de nuestro café">
+      <h2 class="seccion-titulo">Conoce el Origen de tu Taza</h2>
+      <p class="seccion-sub">Granos seleccionados directamente de las mejores fincas con tostado artesanal.</p>
+      <div class="origen-grid">
+        <ficha-origen id="ficha-loja" altitud="1500" tueste="Medio" intensidad="4/5">
+          <h3 slot="region">Origen: Loja, Ecuador</h3>
+          <p>Café de especialidad de altura, notas afrutadas y acidez cítrica brillante.</p>
+        </ficha-origen>
 
     <section id="productos" class="catalogo" aria-label="Catálogo de productos">
       <h2 class="seccion-titulo">Nuestros Productos</h2>
@@ -62,6 +70,12 @@
       </div>
     </section>
 
+        <ficha-origen id="ficha-galapagos" altitud="350" tueste="Medio-Oscuro" intensidad="4/5">
+          <h3 slot="region">Origen: Galápagos, Ecuador</h3>
+          <p>Grano exótico cultivado en suelo volcánico frente al mar, con cuerpo sedoso y notas dulces a cacao.</p>
+        </ficha-origen>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -84,6 +98,7 @@
   </footer>
 
   <script type="module" src="./componentes/tarjeta-producto.js"></script>
+  <script type="module" src="./componentes/ficha-origen.js"></script>
 
 </body>
 

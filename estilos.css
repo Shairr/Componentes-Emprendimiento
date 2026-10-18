@@ -10,9 +10,6 @@
 
   --fuente-display: 'Cormorant Garamond', Georgia, serif;
   --fuente-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --sombra-elegante: 0 10px 30px -8px rgba(44, 26, 14, 0.08);
-  --sombra-suave: 0 4px 16px -2px rgba(44, 26, 14, 0.05);
-  --transicion-suave: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 *,
