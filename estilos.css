@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
-/* Variables globales */
 :root {
   --color-marca: #6f4e37;
   --color-acento: #c68642;
@@ -8,11 +7,11 @@
   --color-superficie: #ffffff;
   --color-texto: #2c1a0e;
   --color-texto-suave: #6a6460;
+
   --fuente-display: 'Cormorant Garamond', Georgia, serif;
   --fuente-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-/* Reset y base */
 *,
 *::before,
 *::after {
@@ -38,13 +37,11 @@ body {
   line-height: 1.6;
 }
 
-/* Selección de texto */
 ::selection {
   background-color: var(--color-acento);
   color: #ffffff;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -62,7 +59,6 @@ body {
   background: var(--color-acento);
 }
 
-/* Navbar */
 .navbar {
   width: 100%;
   background-color: var(--color-marca);
@@ -162,7 +158,6 @@ body {
   width: 100%;
 }
 
-/* Main */
 .contenedor-principal {
   flex: 1;
   width: 100%;
@@ -171,7 +166,6 @@ body {
   padding: 48px 36px;
 }
 
-/* Variables heredadas al componente tarjeta-producto */
 tarjeta-producto {
   --color-marca: var(--color-marca);
   --color-acento: var(--color-acento);
@@ -181,16 +175,36 @@ tarjeta-producto {
   --color-texto-suave: var(--color-texto-suave);
 }
 
-/* Sección Origen */
+.catalogo {
+  padding-top: 0.5rem;
+}
 
 .seccion-titulo {
   font-family: var(--fuente-display);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--color-texto);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--color-marca);
   text-align: center;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
   margin-bottom: 0.5rem;
-  line-height: 1.15;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.seccion-titulo::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 48px;
+  background: var(--color-acento);
+  border-radius: 1px;
+  margin: 0.5rem auto 0;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
 }
 
 .seccion-sub {
@@ -198,33 +212,16 @@ tarjeta-producto {
   color: var(--color-texto-suave);
   font-size: 1rem;
   font-weight: 400;
-  max-width: 540px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.6;
+  letter-spacing: 0.02em;
+  margin-bottom: 2.8rem;
 }
 
-.origen-grid {
+.catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 2rem;
-  max-width: 1120px;
-  margin: 0 auto;
-  align-items: stretch;
-  justify-content: center;
 }
 
-@media (max-width: 860px) {
-  .origen-grid {
-    grid-template-columns: minmax(0, 460px);
-    justify-content: center;
-  }
-
-  .seccion-titulo {
-    font-size: 1.7rem;
-  }
-}
-
-/* Footer */
 .footer {
   width: 100%;
   background-color: var(--color-marca);
@@ -309,7 +306,6 @@ tarjeta-producto {
   width: 100%;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
 
   .navbar-contenedor,
@@ -339,5 +335,9 @@ tarjeta-producto {
 
   .contenedor-principal {
     padding: 28px 18px;
+  }
+
+  .catalogo-grid {
+    grid-template-columns: 1fr;
   }
 }

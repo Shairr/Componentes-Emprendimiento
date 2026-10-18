@@ -11,7 +11,6 @@
 
 <body>
 
-  <!-- BARRA DE NAVEGACIÓN (HEADER) -->
   <header class="navbar">
     <div class="navbar-contenedor">
       <a href="#" class="navbar-marca">
@@ -31,7 +30,6 @@
     </div>
   </header>
 
-  <!-- CONTENEDOR PRINCIPAL -->
   <main class="contenedor-principal">
     <section id="origen" class="origen" aria-label="Origen de nuestro café">
       <h2 class="seccion-titulo">Conoce el Origen de tu Taza</h2>
@@ -42,10 +40,35 @@
           <p>Café de especialidad de altura, notas afrutadas y acidez cítrica brillante.</p>
         </ficha-origen>
 
-        <ficha-origen id="ficha-intag" altitud="1800" tueste="Ligero" intensidad="3/5">
-          <h3 slot="region">Origen: Intag, Imbabura</h3>
-          <p>Cultivado bajo sombra en los bosques nublados de Intag con certificación orgánica.</p>
-        </ficha-origen>
+    <section id="productos" class="catalogo" aria-label="Catálogo de productos">
+      <h2 class="seccion-titulo">Nuestros Productos</h2>
+      <p class="seccion-sub">Cada taza cuenta una historia. Elige la tuya.</p>
+
+      <div class="catalogo-grid">
+
+        <tarjeta-producto id="tarjeta-espresso" precio="3.50" destacado>
+          <img slot="foto" src="./img/espresso.jpg" alt="Taza de espresso artesanal con latte art en mesa de madera" />
+          <h3 slot="nombre">Espresso Artesanal</h3>
+          <p>Doble extracción de granos de altura, tostado oscuro con notas de chocolate amargo y caramelo. La base de
+            todas nuestras bebidas.</p>
+        </tarjeta-producto>
+
+        <tarjeta-producto id="tarjeta-coldbrew" precio="4.75">
+          <img slot="foto" src="./img/cold-brew.jpg" alt="Vaso alto de cold brew con hielos y condensación" />
+          <h3 slot="nombre">Cold Brew 24 h</h3>
+          <p>Maceración en frío durante 24 horas. Resultado: concentrado suave, bajo en acidez y con una dulzura natural
+            que no necesita azúcar.</p>
+        </tarjeta-producto>
+
+        <tarjeta-producto id="tarjeta-granos" precio="12.00">
+          <img slot="foto" src="./img/granos.jpg" alt="Bolsa de papel kraft con granos de café de especialidad" />
+          <h3 slot="nombre">Granos de Especialidad</h3>
+          <p>Bolsa de 250 g · Origen único, selección de finca. Tostado artesanal en pequeños lotes para garantizar
+            frescura y perfiles de sabor únicos.</p>
+        </tarjeta-producto>
+
+      </div>
+    </section>
 
         <ficha-origen id="ficha-galapagos" altitud="350" tueste="Medio-Oscuro" intensidad="4/5">
           <h3 slot="region">Origen: Galápagos, Ecuador</h3>
@@ -55,7 +78,6 @@
     </section>
   </main>
 
-  <!-- PIE DE PÁGINA (FOOTER) -->
   <footer class="footer">
     <div class="footer-contenedor">
       <div class="footer-marca">
@@ -75,7 +97,6 @@
     </div>
   </footer>
 
-  <!-- MÓDULOS DE COMPONENTES WEB -->
   <script type="module" src="./componentes/tarjeta-producto.js"></script>
   <script type="module" src="./componentes/ficha-origen.js"></script>
 
