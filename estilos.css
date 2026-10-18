@@ -194,9 +194,53 @@ tarjeta-producto {
   --color-texto-suave: var(--color-texto-suave);
 }
 
-/* ==========================================
-   PIE DE PÁGINA (FOOTER)
-   ========================================== */
+.catalogo {
+  padding-top: 0.5rem;
+}
+
+.seccion-titulo {
+  font-family: var(--fuente-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--color-marca);
+  text-align: center;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.seccion-titulo::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 48px;
+  background: var(--color-acento);
+  border-radius: 1px;
+  margin: 0.5rem auto 0;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+.seccion-sub {
+  text-align: center;
+  color: var(--color-texto-suave);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 2.8rem;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2rem;
+}
+
 .footer {
   width: 100%;
   background-color: var(--color-marca);
@@ -285,6 +329,7 @@ tarjeta-producto {
    RESPONSIVE (TABLETS Y MÓVILES)
    ========================================== */
 @media (max-width: 768px) {
+
   .navbar-contenedor,
   .footer-contenedor {
     flex-direction: column;
@@ -312,5 +357,9 @@ tarjeta-producto {
 
   .contenedor-principal {
     padding: 28px 18px;
+  }
+
+  .catalogo-grid {
+    grid-template-columns: 1fr;
   }
 }

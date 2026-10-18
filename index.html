@@ -43,7 +43,67 @@
          <span>Granos molidos en tu puerta.</span>
          <span slot="accion">Explorar Granos</span>
     </banner-promocion>
+    <section id="testimonios" class="seccion-testimonios">
+      <!--Componente 1-->
+      <testimonio-cliente calificacion="2">
+        <img slot="img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Juan Pérez">
+        <span slot="autor">Juan Pérez</span>
+        <p slot="review">
+          Un servicio y producto de excelente calidad.
+        </p>
+      </testimonio-cliente>
 
+      <!--Componente 2-->
+      <testimonio-cliente calificacion="5">
+        <img slot="img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Denilson Celi">
+        <span slot="autor">Denilson Celi</span>
+        <p slot="review">
+          Me gusta mucho el café y la página Web.
+        </p>
+      </testimonio-cliente>
+
+      <!--Componente 3-->
+      <testimonio-cliente calificacion="1">
+        <img slot="img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" alt="Johana Naranjo">
+        <span slot="autor">Johana Naranjo</span>
+        <p slot="review">
+          Esperaba que fuera de una mejor calidad.
+        </p>
+      </testimonio-cliente>
+    </section>
+
+      <div class="catalogo-grid">
+
+        <tarjeta-producto id="tarjeta-espresso" precio="3.50" destacado>
+          <img slot="foto" src="./img/espresso.jpg" alt="Taza de espresso artesanal con latte art en mesa de madera" />
+          <h3 slot="nombre">Espresso Artesanal</h3>
+          <p>Doble extracción de granos de altura, tostado oscuro con notas de chocolate amargo y caramelo. La base de
+            todas nuestras bebidas.</p>
+        </tarjeta-producto>
+
+        <tarjeta-producto id="tarjeta-coldbrew" precio="4.75">
+          <img slot="foto" src="./img/cold-brew.jpg" alt="Vaso alto de cold brew con hielos y condensación" />
+          <h3 slot="nombre">Cold Brew 24 h</h3>
+          <p>Maceración en frío durante 24 horas. Resultado: concentrado suave, bajo en acidez y con una dulzura natural
+            que no necesita azúcar.</p>
+        </tarjeta-producto>
+
+        <tarjeta-producto id="tarjeta-granos" precio="12.00">
+          <img slot="foto" src="./img/granos.jpg" alt="Bolsa de papel kraft con granos de café de especialidad" />
+          <h3 slot="nombre">Granos de Especialidad</h3>
+          <p>Bolsa de 250 g · Origen único, selección de finca. Tostado artesanal en pequeños lotes para garantizar
+            frescura y perfiles de sabor únicos.</p>
+        </tarjeta-producto>
+
+      </div>
+    </section>
+
+        <ficha-origen id="ficha-galapagos" altitud="350" tueste="Medio-Oscuro" intensidad="4/5">
+          <h3 slot="region">Origen: Galápagos, Ecuador</h3>
+          <p>Grano exótico cultivado en suelo volcánico frente al mar, con cuerpo sedoso y notas dulces a cacao.</p>
+        </ficha-origen>
+      </div>
+    </section>
   </main>
 
   <!-- PIE DE PÁGINA (FOOTER) -->
