@@ -282,6 +282,27 @@ tarjeta-producto {
 }
 
 /* ==========================================
+   CONTENEDOR PRINCIPAL Y SECCIONES
+   ========================================== */
+.contenedor-principal {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 32px;
+  flex: 1;
+}
+
+.seccion-testimonios {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+/* ==========================================
    RESPONSIVE (TABLETS Y MÓVILES)
    ========================================== */
 @media (max-width: 768px) {

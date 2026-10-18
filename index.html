@@ -34,7 +34,34 @@
   <!-- CONTENEDOR PRINCIPAL (Aquí integras tus 4 componentes) -->
   <main class="contenedor-principal">
 
-    <!-- Aquí va tu contenido y tus Web Components -->
+    <section id="testimonios" class="seccion-testimonios">
+      <!--Componente 1-->
+      <testimonio-cliente calificacion="2">
+        <img slot="img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Juan Pérez">
+        <span slot="autor">Juan Pérez</span>
+        <p slot="review">
+          Un servicio y producto de excelente calidad.
+        </p>
+      </testimonio-cliente>
+
+      <!--Componente 2-->
+      <testimonio-cliente calificacion="5">
+        <img slot="img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Denilson Celi">
+        <span slot="autor">Denilson Celi</span>
+        <p slot="review">
+          Me gusta mucho el café y la página Web.
+        </p>
+      </testimonio-cliente>
+
+      <!--Componente 3-->
+      <testimonio-cliente calificacion="1">
+        <img slot="img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" alt="Johana Naranjo">
+        <span slot="autor">Johana Naranjo</span>
+        <p slot="review">
+          Esperaba que fuera de una mejor calidad.
+        </p>
+      </testimonio-cliente>
+    </section>
 
   </main>
 
@@ -59,7 +86,7 @@
   </footer>
 
   <!-- MÓDULOS DE COMPONENTES WEB -->
-  <script type="module" src="./componentes/tarjeta-producto.js"></script>
+  <script type="module" src="./componentes/testimonio-cliente.js"></script>
 
 </body>
 
