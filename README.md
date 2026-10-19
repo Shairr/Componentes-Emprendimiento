@@ -70,7 +70,7 @@ Todos los componentes son módulos nativos que hacen uso de **Shadow DOM**, **`<
   <span slot="accion">Explorar Granos</span>
 </banner-promocion>
 ```
-
+![banner-promocion](./img/components/banner-promocion.png)
 ---
 
 ### 4.2. `<tarjeta-producto>`
@@ -94,7 +94,7 @@ Todos los componentes son módulos nativos que hacen uso de **Shadow DOM**, **`<
   <p>Doble extracción de granos de altura, tostado oscuro con notas de chocolate amargo.</p>
 </tarjeta-producto>
 ```
-
+![tarjeta-producto](./img/components/tarjeta-producto.png)
 ---
 
 ### 4.3. `<ficha-origen>`
@@ -117,7 +117,7 @@ Todos los componentes son módulos nativos que hacen uso de **Shadow DOM**, **`<
   <p>Grano exótico cultivado en suelo volcánico frente al mar, con cuerpo sedoso y notas dulces a cacao.</p>
 </ficha-origen>
 ```
-
+![ficha-origen](./img/components/ficha-origen.png)
 ---
 
 ### 4.4. `<testimonio-cliente>`
@@ -140,6 +140,7 @@ Todos los componentes son módulos nativos que hacen uso de **Shadow DOM**, **`<
   <p slot="review">Me gusta mucho el café y la rapidez del servicio.</p>
 </testimonio-cliente>
 ```
+![testimonio-cliente](./img/components/testimonio-cliente.png)
 ---
 
 
@@ -172,11 +173,14 @@ banner.setAttribute("codigo", "ESPE2026");
 
 // 4. Cambiar calificación en testimonios
 document.querySelector("testimonio-cliente").setAttribute("calificacion", "4");
+
+// 5. Modificar altitud de la ficha de origen
+document.querySelector("ficha-origen").setAttribute("altitud", "3200");
 ```
 
 ---
 
-## 🤖 6. Declaración de Uso de Inteligencia Artificial
+##  6. Declaración de Uso de Inteligencia Artificial
 
 - **Herramientas utilizadas:** Asistentes de IA basados en modelos avanzados de lenguaje (LLM).
 - **Propósito de la consulta:**
