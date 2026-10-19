@@ -181,66 +181,229 @@ body {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 48px 36px;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
 }
 
-/* Herencia de variables CSS hacia los Web Components */
-tarjeta-producto {
+/* Herencia de variables CSS hacia todos los Web Components */
+tarjeta-producto,
+banner-promocion,
+ficha-origen,
+testimonio-cliente {
   --color-marca: var(--color-marca);
   --color-acento: var(--color-acento);
   --color-fondo: var(--color-fondo);
   --color-superficie: var(--color-superficie);
   --color-texto: var(--color-texto);
   --color-texto-suave: var(--color-texto-suave);
+  --fuente-display: var(--fuente-display);
+  --fuente-base: var(--fuente-base);
 }
 
-.catalogo {
-  padding-top: 0.5rem;
+/* ==========================================
+   ESTILOS DE SECCIÓN Y ENCABEZADOS
+   ========================================== */
+.seccion-bloque {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.seccion-cabecera {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seccion-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: rgba(198, 134, 66, 0.12);
+  color: var(--color-marca);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 20px;
+  border: 1px solid rgba(198, 134, 66, 0.25);
+  margin-bottom: 12px;
 }
 
 .seccion-titulo {
   font-family: var(--fuente-display);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2.1rem, 4.5vw, 2.9rem);
   font-weight: 600;
   color: var(--color-marca);
-  text-align: center;
-  letter-spacing: 0.03em;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-bottom: 12px;
   position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .seccion-titulo::after {
   content: "";
   display: block;
-  height: 2px;
-  width: 48px;
+  height: 2.5px;
+  width: 52px;
   background: var(--color-acento);
-  border-radius: 1px;
-  margin: 0.5rem auto 0;
-  left: 50%;
-  position: relative;
-  transform: translateX(-50%);
+  border-radius: 2px;
+  margin: 10px auto 0;
 }
 
 .seccion-sub {
-  text-align: center;
   color: var(--color-texto-suave);
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 400;
-  letter-spacing: 0.02em;
-  margin-bottom: 2.8rem;
+  line-height: 1.6;
 }
 
-.catalogo-grid {
+/* ==========================================
+   SLIDER PARA BANNER-PROMOCION
+   ========================================== */
+.banner-slider-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--sombra-elegante);
+}
+
+.banner-slider-track {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+}
+
+.banner-slide {
+  display: none;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.45s ease-in-out;
+}
+
+.banner-slide.activa {
+  display: block;
+  opacity: 1;
+  animation: fadeInPromo 0.45s ease forwards;
+}
+
+@keyframes fadeInPromo {
+  from {
+    opacity: 0;
+    transform: scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Botones de control del slider */
+.slider-control-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(44, 26, 14, 0.45);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.slider-control-btn:hover {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.slider-control-btn.prev {
+  left: 18px;
+}
+
+.slider-control-btn.next {
+  right: 18px;
+}
+
+/* Indicadores de puntos */
+.slider-indicadores {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.slider-dot:hover {
+  background: #ffffff;
+}
+
+.slider-dot.activo {
+  width: 26px;
+  border-radius: 6px;
+  background: var(--color-acento);
+}
+
+/* ==========================================
+   GRIDS ARMONIZADOS DE COMPONENTES
+   ========================================== */
+.catalogo-grid,
+.origen-grid,
+.testimonios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 28px;
+  align-items: stretch;
 }
 
+/* Fichas de Origen en cuadrícula */
+.origen-grid ficha-origen {
+  height: 100%;
+}
+
+/* Testimonios alineados en cuadrícula uniforme */
+.testimonios-grid testimonio-cliente {
+  max-width: 100%;
+  flex: none;
+  height: 100%;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
 .footer {
   width: 100%;
   background-color: var(--color-marca);
@@ -252,12 +415,12 @@ tarjeta-producto {
 .footer-contenedor {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 16px 32px 14px;
+  padding: 24px 32px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
 
 .footer-marca {
@@ -267,37 +430,37 @@ tarjeta-producto {
 
 .footer-nombre {
   font-family: var(--fuente-display);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: #ffffff;
 }
 
 .footer-eslogan {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.68);
-  margin-top: 1px;
-  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 2px;
+  letter-spacing: 0.04em;
 }
 
 .footer-copy {
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.62);
   letter-spacing: 0.02em;
 }
 
 .footer-redes {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
 }
 
 .red-enlace {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
   text-decoration: none;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -316,7 +479,7 @@ tarjeta-producto {
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 1px;
+  height: 1.5px;
   background-color: var(--color-acento);
   transition: width 0.25s ease;
 }
@@ -328,14 +491,22 @@ tarjeta-producto {
 /* ==========================================
    RESPONSIVE (TABLETS Y MÓVILES)
    ========================================== */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .catalogo-grid,
+  .origen-grid,
+  .testimonios-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+  }
+}
 
+@media (max-width: 768px) {
   .navbar-contenedor,
   .footer-contenedor {
     flex-direction: column;
     text-align: center;
-    padding: 14px 18px;
-    gap: 12px;
+    padding: 16px 20px;
+    gap: 14px;
   }
 
   .navbar-marca {
@@ -344,7 +515,7 @@ tarjeta-producto {
 
   .navbar-menu {
     justify-content: center;
-    gap: 16px;
+    gap: 18px;
   }
 
   .footer-marca {
@@ -356,10 +527,31 @@ tarjeta-producto {
   }
 
   .contenedor-principal {
-    padding: 28px 18px;
+    padding: 24px 16px 60px;
+    gap: 48px;
   }
 
-  .catalogo-grid {
+  .seccion-cabecera {
+    margin-bottom: 24px;
+  }
+
+  .slider-control-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .slider-control-btn.prev {
+    left: 8px;
+  }
+
+  .slider-control-btn.next {
+    right: 8px;
+  }
+
+  .catalogo-grid,
+  .origen-grid,
+  .testimonios-grid {
     grid-template-columns: 1fr;
   }
 }

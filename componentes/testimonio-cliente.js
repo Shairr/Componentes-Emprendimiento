@@ -138,7 +138,7 @@ plantilla.innerHTML = `
 
 //Denifinición de la clase para mi componente
 
-class TestimonioCliente extends HTMLElement {
+export class TestimonioCliente extends HTMLElement {
 
   //Elementos observados del componente 
 

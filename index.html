@@ -32,79 +32,247 @@
     </div>
   </header>
 
-  <!-- CONTENEDOR PRINCIPAL (Aquí integras tus 4 componentes) -->
+  <!-- CONTENEDOR PRINCIPAL -->
   <main class="contenedor-principal">
 
-    <!-- El web component muestra una promoción configurable mediante
-         los atributos descuento/codigo y los slots de iamgen, título, texto y acción. -->
-    <banner-promocion descuento="20" codigo="CAFERAIZ2026" class="noise">
-         <img slot="imagen" src="./img/coffee-bag.png" width="80%">
-         <span slot="titulo">DESCUENTO EN TU PRIMER PEDIDO</span>
-         <span>Granos molidos en tu puerta.</span>
-         <span slot="accion">Explorar Granos</span>
-    </banner-promocion>
-    <section id="testimonios" class="seccion-testimonios">
-      <!--Componente 1-->
-      <testimonio-cliente calificacion="2">
-        <img slot="img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Juan Pérez">
-        <span slot="autor">Juan Pérez</span>
-        <p slot="review">
-          Un servicio y producto de excelente calidad.
-        </p>
-      </testimonio-cliente>
+    <!-- SECCIÓN: BANNER PROMOCIÓN CON SLIDER -->
+    <section id="promocion" class="seccion-bloque">
+      <div class="seccion-cabecera">
+        <span class="seccion-badge">Ofertas Especiales</span>
+        <h2 class="seccion-titulo">Promociones de Temporada</h2>
+        <p class="seccion-sub">Descubre nuestros descuentos exclusivos y códigos para disfrutar del mejor café
+          artesanal.</p>
+      </div>
 
-      <!--Componente 2-->
-      <testimonio-cliente calificacion="5">
-        <img slot="img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Denilson Celi">
-        <span slot="autor">Denilson Celi</span>
-        <p slot="review">
-          Me gusta mucho el café y la página Web.
-        </p>
-      </testimonio-cliente>
+      <!-- Slider Wrapper para banner-promocion -->
+      <div class="banner-slider-wrapper">
+        <div class="banner-slider-track" id="bannerSliderTrack">
 
-      <!--Componente 3-->
-      <testimonio-cliente calificacion="1">
-        <img slot="img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" alt="Johana Naranjo">
-        <span slot="autor">Johana Naranjo</span>
-        <p slot="review">
-          Esperaba que fuera de una mejor calidad.
-        </p>
-      </testimonio-cliente>
+          <!-- Slide 1 -->
+          <div class="banner-slide activa">
+            <banner-promocion descuento="20" codigo="CAFERAIZ2026">
+              <img slot="imagen" src="./img/coffee-bag.png" alt="Bolsa de Café Raíz" width="80%">
+              <span slot="titulo">DESCUENTO EN TU PRIMER PEDIDO</span>
+              <span>Granos seleccionados y molidos frescos directamente en tu puerta.</span>
+              <span slot="accion">Explorar Granos</span>
+            </banner-promocion>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="banner-slide">
+            <banner-promocion descuento="100" codigo="ENVIOGRATIS">
+              <img slot="imagen" src="./img/coffee-beans.png" alt="Granos de Café" width="80%">
+              <span slot="titulo">ENVÍO GRATIS EN PACKS DE ORIGEN</span>
+              <span>En la compra de 3 o más bolsas de especialidad a todo el país.</span>
+              <span slot="accion">Ver Variedades</span>
+            </banner-promocion>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="banner-slide">
+            <banner-promocion descuento="15" codigo="CLUBRAIZ15">
+              <img slot="imagen" src="./img/coffee-bag.png" alt="Suscripción Club Café Raíz" width="80%">
+              <span slot="titulo">SUSCRIPCIÓN CLUB DE CAFÉ</span>
+              <span>Tuestes exclusivos recién horneados cada mes con molienda personalizada.</span>
+              <span slot="accion">Unirme al Club</span>
+            </banner-promocion>
+          </div>
+
+        </div>
+
+        <!-- Controles interactivos del Slider -->
+        <button class="slider-control-btn prev" id="sliderBtnPrev" aria-label="Promoción anterior">‹</button>
+        <button class="slider-control-btn next" id="sliderBtnNext" aria-label="Siguiente promoción">›</button>
+
+        <div class="slider-indicadores" id="sliderIndicadores">
+          <button class="slider-dot activo" data-indice="0" aria-label="Ir a diapositiva 1"></button>
+          <button class="slider-dot" data-indice="1" aria-label="Ir a diapositiva 2"></button>
+          <button class="slider-dot" data-indice="2" aria-label="Ir a diapositiva 3"></button>
+        </div>
+      </div>
     </section>
 
-      <div class="catalogo-grid">
+    <!-- SECCIÓN: CATÁLOGO DE PRODUCTOS -->
+    <section id="productos" class="seccion-bloque">
+      <div class="seccion-cabecera">
+        <span class="seccion-badge">Nuestra Carta</span>
+        <h2 class="seccion-titulo">Cafés de Especialidad</h2>
+        <p class="seccion-sub">Bebidas preparadas y granos seleccionados con los más rigurosos estándares de cata.</p>
+      </div>
 
+      <div class="catalogo-grid">
         <tarjeta-producto id="tarjeta-espresso" precio="3.50" destacado>
-          <img slot="foto" src="./img/espresso.jpg" alt="Taza de espresso artesanal con latte art en mesa de madera" />
+          <img slot="foto" src="./img/espresso.jpg" alt="Taza de espresso artesanal con crema dorada" />
           <h3 slot="nombre">Espresso Artesanal</h3>
-          <p>Doble extracción de granos de altura, tostado oscuro con notas de chocolate amargo y caramelo. La base de
-            todas nuestras bebidas.</p>
+          <p>Doble extracción de granos de altura, tostado oscuro con notas intensas de chocolate amargo y caramelo
+            tostado.</p>
         </tarjeta-producto>
 
-        <tarjeta-producto id="tarjeta-coldbrew" precio="4.75">
-          <img slot="foto" src="./img/cold-brew.jpg" alt="Vaso alto de cold brew con hielos y condensación" />
+        <tarjeta-producto id="tarjeta-coldbrew" precio="4.75" destacado>
+          <img slot="foto" src="./img/cold-brew.jpg" alt="Vaso de cold brew con hielo" />
           <h3 slot="nombre">Cold Brew 24 h</h3>
-          <p>Maceración en frío durante 24 horas. Resultado: concentrado suave, bajo en acidez y con una dulzura natural
-            que no necesita azúcar.</p>
+          <p>Maceración lenta en frío durante 24 horas. Concentrado suave, baja acidez y dulzura natural aterciopelada.
+          </p>
         </tarjeta-producto>
 
         <tarjeta-producto id="tarjeta-granos" precio="12.00">
-          <img slot="foto" src="./img/granos.jpg" alt="Bolsa de papel kraft con granos de café de especialidad" />
+          <img slot="foto" src="./img/granos.jpg" alt="Bolsa de granos de café tostados artesanalmente" />
           <h3 slot="nombre">Granos de Especialidad</h3>
-          <p>Bolsa de 250 g · Origen único, selección de finca. Tostado artesanal en pequeños lotes para garantizar
-            frescura y perfiles de sabor únicos.</p>
+          <p>Bolsa de 250 g con fecha de tueste visible. Origen único, micro-lotes que garantizan frescura y aromas
+            frutales.</p>
         </tarjeta-producto>
-
       </div>
     </section>
 
+    <!-- SECCIÓN: ORIGEN Y TRAZABILIDAD -->
+    <section id="origen" class="seccion-bloque">
+      <div class="seccion-cabecera">
+        <span class="seccion-badge">Trazabilidad y Calidad</span>
+        <h2 class="seccion-titulo">Fichas de Origen</h2>
+        <p class="seccion-sub">Conoce el ecosistema, la altitud y las características botánicas detrás de cada taza.</p>
+      </div>
+
+      <div class="origen-grid">
         <ficha-origen id="ficha-galapagos" altitud="350" tueste="Medio-Oscuro" intensidad="4/5">
           <h3 slot="region">Origen: Galápagos, Ecuador</h3>
-          <p>Grano exótico cultivado en suelo volcánico frente al mar, con cuerpo sedoso y notas dulces a cacao.</p>
+          <p>Grano exótico cultivado en suelo volcánico de alta mineralidad frente al mar, con cuerpo sedoso y notas
+            dulces a cacao.</p>
+        </ficha-origen>
+
+        <ficha-origen id="ficha-loja" altitud="1950" tueste="Medio" intensidad="3/5">
+          <h3 slot="region">Origen: Loja (Vilcabamba)</h3>
+          <p>Café de altura legendario, beneficiado por microclimas andinos, con fragancias florales, jazmín y acidez
+            cítrica brillante.</p>
+        </ficha-origen>
+
+        <ficha-origen id="ficha-intag" altitud="1650" tueste="Oscuro" intensidad="5/5">
+          <h3 slot="region">Origen: Valle de Íntag, Imbabura</h3>
+          <p>Cultivado en bosques nublados bajo sombra ecológica, ofreciendo un sabor robusto a nuez tostada, panela y
+            retrogusto prolongado.</p>
         </ficha-origen>
       </div>
     </section>
+
+    <!-- SECCIÓN: TESTIMONIOS DE CLIENTES -->
+    <section id="testimonios" class="seccion-bloque">
+      <div class="seccion-cabecera">
+        <span class="seccion-badge">Comunidad Café Raíz</span>
+        <h2 class="seccion-titulo">Lo que Dicen Nuestros Clientes</h2>
+        <p class="seccion-sub">Experiencias y valoraciones reales de amantes del buen café.</p>
+      </div>
+
+      <div class="testimonios-grid">
+        <testimonio-cliente calificacion="5">
+          <img slot="img"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+            alt="Denilson Celi">
+          <span slot="autor">Denilson Celi</span>
+          <p slot="review">
+            El perfil del grano de Galápagos es verdaderamente único. El aroma al abrir la bolsa inunda toda la cocina y
+            la entrega fue inmediata.
+          </p>
+        </testimonio-cliente>
+
+        <testimonio-cliente calificacion="5">
+          <img slot="img"
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+            alt="Juan Pérez">
+          <span slot="autor">Juan Pérez</span>
+          <p slot="review">
+            Un servicio y producto de excelente calidad artesanal. El Cold Brew 24h tiene la acidez perfecta para el
+            calor de la tarde.
+          </p>
+        </testimonio-cliente>
+
+        <testimonio-cliente calificacion="4">
+          <img slot="img"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80"
+            alt="Johana Naranjo">
+          <span slot="autor">Johana Naranjo</span>
+          <p slot="review">
+            Granos frescos con notas muy claras a chocolate y frutos secos. Excelente presentación y atención al
+            cliente.
+          </p>
+        </testimonio-cliente>
+      </div>
+    </section>
+
   </main>
+
+  <!-- Script interactivo del slider para banner-promocion -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".banner-slide");
+      const dots = document.querySelectorAll(".slider-dot");
+      const btnPrev = document.getElementById("sliderBtnPrev");
+      const btnNext = document.getElementById("sliderBtnNext");
+      let indiceActual = 0;
+      let intervaloAuto = null;
+
+      function mostrarSlide(indice) {
+        if (!slides.length) return;
+        if (indice < 0) {
+          indiceActual = slides.length - 1;
+        } else if (indice >= slides.length) {
+          indiceActual = 0;
+        } else {
+          indiceActual = indice;
+        }
+
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("activa", i === indiceActual);
+        });
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("activo", i === indiceActual);
+        });
+      }
+
+      function iniciarAutoPlay() {
+        detenerAutoPlay();
+        intervaloAuto = setInterval(() => {
+          mostrarSlide(indiceActual + 1);
+        }, 5500);
+      }
+
+      function detenerAutoPlay() {
+        if (intervaloAuto) {
+          clearInterval(intervaloAuto);
+          intervaloAuto = null;
+        }
+      }
+
+      if (btnPrev) {
+        btnPrev.addEventListener("click", () => {
+          mostrarSlide(indiceActual - 1);
+          iniciarAutoPlay();
+        });
+      }
+
+      if (btnNext) {
+        btnNext.addEventListener("click", () => {
+          mostrarSlide(indiceActual + 1);
+          iniciarAutoPlay();
+        });
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", (e) => {
+          const idx = parseInt(e.target.dataset.indice, 10);
+          mostrarSlide(idx);
+          iniciarAutoPlay();
+        });
+      });
+
+      const wrapper = document.querySelector(".banner-slider-wrapper");
+      if (wrapper) {
+        wrapper.addEventListener("mouseenter", detenerAutoPlay);
+        wrapper.addEventListener("mouseleave", iniciarAutoPlay);
+      }
+
+      iniciarAutoPlay();
+    });
+  </script>
 
   <!-- PIE DE PÁGINA (FOOTER) -->
   <footer class="footer">
